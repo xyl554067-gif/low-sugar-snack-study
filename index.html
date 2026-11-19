@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 180 份 AI 模拟问卷，探索年轻人低糖治愈零食消费的场景、动机和设计机会。">
+  <meta name="theme-color" content="#fbf8ef">
+  <title>低糖治愈零食消费｜用户调研可视化</title>
+  <link rel="stylesheet" href="site.css">
+  <script src="assets/echarts.min.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead">
+    <div class="container header-inner">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span> 情绪消费调研</a>
+      <nav aria-label="站内导航">
+        <a href="#chart">热力图</a>
+        <a href="#persona">用户画像</a>
+        <a href="#design">设计思考</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="field-note">用户调研可视化</p>
+        <h1 id="hero-title">低糖治愈<br>零食消费</h1>
+        <p class="hero-lead">学习或工作累了，年轻人为什么会买一小包低糖零食？</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#chart">探索热力图</a>
+          <a class="button secondary" href="#persona">认识小林</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="assets/study-break.webp" alt="一名虚拟大学生在复习间隙拆开一小包巧克力" width="1448" height="1086" fetchpriority="high">
+        <figcaption>学习间隙 · AI 生成的情境示意</figcaption>
+      </figure>
+    </section>
+
+    <section class="sample-band" aria-label="样本口径">
+      <div class="container sample-grid">
+        <div><strong>180</strong><span>份 AI 模拟问卷</span></div>
+        <div><strong>18–26</strong><span>岁 · 学生及初入职场者</span></div>
+        <p>样本设定为近 30 天购买过低糖零食。每人单选一个最常消费场景和一个首要购买动机。</p>
+      </div>
+    </section>
+
+    <section class="container section" id="chart" aria-labelledby="chart-title">
+      <div class="section-head">
+        <div>
+          <p class="field-note">ECharts 热力图</p>
+          <h2 id="chart-title">消费场景 × 首要购买动机</h2>
+        </div>
+        <p>全样本中，学习/工作间隙与短暂放松的组合人数最多，共 26 人，占该场景的 48.1%。</p>
+      </div>
+      <div class="chart-shell">
+        <div class="chart-tools">
+          <label>筛选人群 <select id="role"><option value="">全部</option><option>学生</option><option>初入职场</option></select></label>
+          <label>显示口径 <select id="metric"><option value="count">人数</option><option value="share">场景内占比</option></select></label>
+          <button class="button primary" type="button" id="export" disabled>导出 PNG</button>
+        </div>
+        <p class="chart-status" id="chart-status" role="status">正在加载模拟问卷…</p>
+        <div id="heatmap" role="img" aria-label="五种场景和四种动机的交叉热力图。可以展开下方数据表查看全部数值。"></div>
+        <div class="chart-insight" id="chart-insight" aria-live="polite" hidden>
+          <p><span id="detail-label"></span><strong id="detail-value"></strong></p>
+          <span id="detail-foot"></span>
+        </div>
+        <details class="table-details">
+          <summary>查看交叉数据表</summary>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="交叉数据表">
+            <table id="chart-table"><caption class="sr-only">当前筛选条件下各场景的购买动机分布</caption><thead></thead><tbody></tbody></table>
+          </div>
+        </details>
+        <noscript><p class="chart-status">启用 JavaScript 后可使用交互图表。下方可下载原始数据。</p></noscript>
+      </div>
+    </section>
+
+    <section class="persona-section section" id="persona" aria-labelledby="persona-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="field-note">用户画像卡</p>
+            <h2 id="persona-title">学习间隙的甜食爱好者</h2>
+          </div>
+          <p>热力图中人数最多的组合包含 19 名学生。小林综合了这 19 份模拟回答中各题最常见的选项。</p>
+        </div>
+
+        <div class="profile">
+          <article class="profile-identity">
+            <p class="profile-kind">综合虚拟角色</p>
+            <h3>小林<span>22 岁 · 大学生</span></h3>
+            <blockquote>“复习到一半想吃点甜的缓一缓，最好一小包就够。”</blockquote>
+            <p class="quote-source">虚拟情境自述</p>
+            <dl class="identity-facts">
+              <div><dt>典型消费频次</dt><dd>近 30 天 2–3 次</dd></div>
+              <div><dt>常见购买渠道</dt><dd>线下便利店或超市</dd></div>
+            </dl>
+          </article>
+
+          <article class="profile-evidence">
+            <h3>小林怎么买</h3>
+            <dl class="evidence-list">
+              <div><dt><strong>13</strong>/19</dt><dd><b>单包预算 5–10 元</b><span>这是画像组最常选择的单包价格区间。</span></dd></div>
+              <div><dt><strong>11</strong>/19</dt><dd><b>把口味口感放在首位</b><span>每份糖含量也是一项取舍，有 4 人将它列为首要因素。</span></dd></div>
+              <div><dt><strong>9</strong>/19</dt><dd><b>主要顾虑是口感打折或有代糖后味</b><span>另有 6 人主要担心糖含量标注难比较。</span></dd></div>
+              <div><dt><strong>8</strong>/19</dt><dd><b>偏好低糖巧克力</b><span>它在五类候选零食中获得最多选择。</span></dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="journey">
+          <h3>一次学习间隙的购买</h3>
+          <p class="journey-source">根据画像特征构建的情境推演</p>
+          <ol>
+            <li><h4>想休息一会儿</h4><p>复习告一段落，小林想吃点甜的，给自己留几分钟放松。</p></li>
+            <li><h4>在便利店挑一小包</h4><p>先看巧克力口味，再比较单包价格和每份糖含量。犹豫点是低糖版本吃起来会不会有后味。</p></li>
+            <li><h4>尝完再考虑回购</h4><p>如果巧克力口味合适、分量能一次吃完，下次复习间隙就有理由再买。</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="design" aria-labelledby="design-title">
+      <div class="section-head">
+        <div>
+          <p class="field-note">总结与设计思考</p>
+          <h2 id="design-title">适合学习间隙的一小包巧克力</h2>
+        </div>
+        <p>学习/工作间隙的人最常选短暂放松，运动后的人最常选控制糖摄入（14/28）。产品可先聚焦学习间隙，再用真实用户测试验证。</p>
+      </div>
+      <div class="design-grid">
+        <article>
+          <h3>口感和分量</h3>
+          <p>做一款适合一次吃完的独立小包装，以 5–10 元为待测价位。用同规格的样品做盲测，记录喜欢程度和代糖后味评价。</p>
+        </article>
+        <article>
+          <h3>包装信息</h3>
+          <p>在正面并列展示具体口味和每份糖含量。用同口味的两版包装做选择测试，记录找到糖含量所需的时间与购买意愿。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="data-section" id="data" aria-labelledby="data-title">
+      <div class="container data-grid">
+        <div>
+          <h2 id="data-title">样本与原始数据</h2>
+          <p>180 条逐条作答、15 个字段，全部由 AI 模拟。样本包含 99 名学生与 81 名初入职场者，结果用于课堂演示。</p>
+        </div>
+        <div class="data-actions">
+          <a class="button secondary" href="assets/survey.csv" download="AI模拟问卷_180份.csv">下载 CSV</a>
+          <a class="button secondary" href="assets/survey.json" download="AI模拟问卷原始数据.json">下载 JSON</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="container footer"><span>低糖治愈零食消费 · 用户调研可视化</span><a href="#top">返回顶部</a></footer>
+</body>
+</html>
